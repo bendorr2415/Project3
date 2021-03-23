@@ -76,9 +76,12 @@ class NeuralNetwork:
 
         loss = 999
         loss_iter_sample = []
+        epoch_losses = []
 
         for i in range(self.iters):
             i+=1
+
+            losses = []
 
             shuffled = sklearn.utils.shuffle(self.x, self.y) # does not shuffle in place
             shuffled_x, shuffled_y = shuffled[0], shuffled[1]
@@ -99,6 +102,8 @@ class NeuralNetwork:
                 prev_loss = loss
                 loss = np.sum((target - self.output_act)**2)
 
+                losses.append(loss)
+
                 # if math.isnan(loss):
                 #     loss = prev_loss
                 #     break
@@ -108,6 +113,9 @@ class NeuralNetwork:
                 if verbose:
                     print('loss = %.2f. iter = %d. sample = %d' % (loss, i, s))
 
+            epoch_losses.append(sum(losses) / len(losses))
+
+        # Can return epoch_losses here to see loss per epoch
         return loss_iter_sample
 
 
