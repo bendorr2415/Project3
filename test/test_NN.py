@@ -12,5 +12,5 @@ def test_one_d_ouput():
 
 seq = 'actgactg'
 def one_hot_encode_test(seq):
-    one_hot = one_hot_encode_dna(seq)
+    one_hot = NN.one_hot_encode_dna(seq)
     print(one_hot)
