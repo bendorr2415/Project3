@@ -1,3 +1,6 @@
+
+import pytest
+
 from scripts import NN
 
 
