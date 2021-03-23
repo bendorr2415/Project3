@@ -17,3 +17,4 @@ seq = 'actgactg'
 def one_hot_encode_test(seq):
     one_hot = NN.one_hot_encode_dna(seq)
     print(one_hot)
+    assert True
