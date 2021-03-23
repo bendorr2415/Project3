@@ -256,18 +256,3 @@ def make_autoencoder_training_examples():
 
 
 
-
-
-###
-# UNIT TESTS
-###
-seq = 'actgactg'
-def one_hot_encode_test(seq):
-    one_hot = one_hot_encode_dna(seq)
-    print(one_hot)
-
-#one_hot_encode_test(seq)
-
-
-
-
