@@ -125,3 +125,75 @@ Class NeuralNetwork():
                 network is an autoencoder), or the network's output activation array itself.
 
 ```
+
+```
+Class-less functions:
+
+  - activation (x, activ):
+
+      Takes an array and returns an array of the same shape after applying the specified activation function.
+
+        Params:
+            x - a numpy array
+            activ - a string. Currently can only be 'sigmoid' or 'relu'
+
+        Returns:
+            an array with the same shape as x
+            
+            
+            
+  - activation_derivative (x, activ):
+
+      Calculates and returns the derivative of the given activation function at the values in the given array.
+
+        Params:
+            x - a numpy array
+            activ - a string. Currently can only be 'sigmoid' or 'relu'
+
+        Returns:
+            an array with the same shape as x
+            
+            
+            
+  - one_hot_encode_dna (seq):
+
+      Takes a string of dna sequence and returns the one-hot encoded form of the sequence.
+
+        Params:
+            seq - a string of As, Ts, Cs, and Gs
+
+        Returns:
+            a numpy array containing the one-hot encoded representation of the input sequence
+            
+            
+            
+  - make_training_examples (pos_file, neg_file):
+
+      Reads a .txt file with positive DNA sequences and a .fa file with negative sequences. Fills a
+      dictionary with the extracted data.  The keys of the dictionary are the sequences, and the values are
+      1s for positive sequences and 0s for negative sequences.  The dictionary contains 411 negative examples,
+      and as many positive examples as are in the .txt file.  The negative examples are the first 17 characters from
+      the start of lines containing sequences in the .fa file.  Lastly, the function ensures that there are no duplicate
+      sequences, and if a sequence is both a positive and negative example, then it will be stored as a positive
+      example only.
+
+          Params:
+              pos_file - a .txt file with positive sequences separated by line breaks
+              neg_file - a .fa file with negative sequences separated by '>' characters
+
+          Returns:
+              a dictionary with keys = sequences, and values = 1s and 0s (1s for positive examples, 0s for negative)
+              
+              
+              
+  - make_autoencoder_training_examples ():
+
+      Makes 8 unique bitvectors, each of length 8, and each full of zeros besides a single 1.
+
+        Params:
+            None
+
+        Returns:
+            A list of 8 different, 8-element numpy arrays
+
+```
